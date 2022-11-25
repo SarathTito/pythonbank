@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% block content %}
+<script>
+var subjectObject = {
+  "Palakkad": {
+    "Alathur": ["dummy"],
+    "Vadakkencherry": ["dummy"],
+    "Nemmara": ["dummy"]
+  },
+  "Thrissur": {
+    "Koorkencherry": ["dummy"],
+    "Chavakkad": ["dummy"],
+    "Chalakudy": ["dummy"]
+
+  },
+  "Eranakulam":{
+  "Edapally":["dummy"],
+  "Kalammaseery":["dummy"],
+  "Aluva":["dummy"]
+  },
+  "Kollam":{
+  "Thangasserry":["dummy"],
+  "Neendakara":["dummy"],
+  "Oachira":["dummy"]
+  },
+  "Wayanad":{
+  "Pulpalli":["dummy"],
+  "Manathavady":["dummy"],
+  "Sulthan bathery":["dummy"]
+  }
+}
+window.onload = function() {
+  var subjectSel = document.getElementById("subject");
+  var topicSel = document.getElementById("topic");
+  for (var x in subjectObject) {
+    subjectSel.options[subjectSel.options.length] = new Option(x, x);
+  }
+  subjectSel.onchange = function() {
+    //empty Chapters- and Topics- dropdowns
+    topicSel.length = 1;
+    //display correct values
+    for (var y in subjectObject[this.value]) {
+      topicSel.options[topicSel.options.length] = new Option(y, y);
+    }
+  }
+}
+</script>
+<form name="form1" id="form1" action="" method="POST">
+  {% csrf_token %}
+    <table>
+        <tr>
+    <td>
+        Name:
+    </td>
+            <td>
+  <input type="text" name="name" placeholder="Enter your Name">
+                </td>
+            </tr>
+        <tr>
+            <td>
+        Address:
+    </td>
+
+    <td>
+  <input type="text" name="address" placeholder="Enter your address">
+        </td>
+            </tr>
+        <tr>
+    <td>
+        Phonenumber:
+    </td>
+            <td>
+  <input type="text" name="phonenumber" placeholder="Enter your phonenumber">
+            </td>
+        </tr>
+    <tr>
+            <td>
+                Age:
+            </td>
+            <td>
+                <input type="text" placeholder="Enter your Age">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Email:
+            </td>
+            <td>
+                <input type="email" placeholder="Enter your mail ID">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Gender:
+            </td>
+            <td>
+                <input type="radio" name="Gender">Male
+                <input type="radio" name="Gender">Female
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Date Of Birth:
+            </td>
+            <td>
+                <input type="date">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox"debit>debit
+                 <input type="checkbox"credit>credit
+                 <input type="checkbox"cheque>cheque
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Account Type:
+            </td>
+            <td>
+                <select>
+                 <option>Please select</option>
+                    <option>Savings Account </option>
+                    <option>Current Account</option>
+                </select>
+
+            </td>
+        </tr>
+  <tr>
+            <td>
+              Districts:
+            </td>
+            <td>
+                 <select name="subject" id="subject">
+    <option value="" selected="selected">please select</option>
+  </select>
+            </td>
+            <tr>
+        <td>
+            Branches:
+        </td>
+        <td>
+            <select name="topic" id="topic">
+    <option value="" selected="selected">please select</option>
+  </select>
+        </td>
+
+        </tr>
+        <tr>
+            <td>
+            <input type="submit">
+        </td>
+            <td>
+                <a class="btn btn-danger" href="login">Logout</a>
+            </td>
+        </tr>
+
+        </table>
+</form>
+
+{% endblock %}

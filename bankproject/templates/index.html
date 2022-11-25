@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="credentials/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="credentials/register">Register</a>
+        </li>
+        <li class="nav-item dropdown {% if 'bankapp' in request.path %} active {% endif %}">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Branches
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Palakkad
+">Palakkad</a></li>
+            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Thrissur">Thrissur</a></li>
+            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Ernakulam
+">Eranakulam</a></li>
+            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Kollam
+">Kollam</a></li>
+            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Wayanad_district
+">Wayanad</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div>
+   <img class="my_image my_image_padding" src="{% static 'img/wssbank.png' %}" alt="bank" width="1250px;">
+ </div>
+<div>
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-primary" href="credentials/login">View More</a>
+</div>
+
+{% endblock %}

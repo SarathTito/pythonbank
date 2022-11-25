@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST">
+              {% csrf_token %}
+    <h1>application accepted</h1>
+
+            {% for i in task1 %}
+                    <h1>{{i.name}}</h1>
+                    <p><b>{{i.address}}</b></p>
+                    <p><b>{{i.phonenumber}}</b></p>
+            {% endfor %}
+    <a class="btn btn-success" href="{% url 'bankapp:index' %}">Back to Home</a>
+</form>
+{% endblock %}
